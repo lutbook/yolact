@@ -172,7 +172,21 @@ pascal_sbd_dataset = dataset_base.copy({
     'class_names': PASCAL_CLASSES,
 })
 
-
+custom_dataset = dataset_base.copy({
+    'name': 'KumazawaLab - Line&tree segmentations',
+    'train_info': '/kw_resources/yolact_data/data/custom/custom_ds_train.json',
+    'train_images': '/kw_resources/yolact_data/data/custom/images/',
+    'valid_info': '/kw_resources/yolact_data/data/custom/custom_ds_vld.json',
+    'valid_images': '/kw_resources/yolact_data/data/custom/images/',
+    #'train_info': 'data/custom/custom_ds_train.json',
+    #'train_images': 'data/custom/images/',
+    #'valid_info': 'data/custom/custom_ds_vld.json',
+    #'valid_images': 'data/custom/images/',
+    #'class_names': ('line', 'tree',)
+    'has_gt': True,
+    'class_names': ('line', 'tree'),
+    'label_map': {1: 1, 2: 2} 
+})
 
 
 
@@ -767,6 +781,28 @@ yolact_resnet50_pascal_config = yolact_resnet50_config.copy({
     })
 })
 
+yolact_custom_config = yolact_base_config.copy({
+    'name': 'yolact_resnet101_line_tree',
+
+    # Dataset stuff
+    'dataset': custom_dataset,
+    'num_classes': len(custom_dataset.class_names) + 1,
+
+    # Image Size
+    'max_size': 700,
+})
+
+yolact_resnet50_custom_config = yolact_resnet50_config.copy({
+    'name': 'yolact_resnet101_line_tree',
+
+    # Dataset stuff
+    'dataset': custom_dataset,
+    'num_classes': len(custom_dataset.class_names) + 1,
+
+    # Image Size
+    'max_size': 550,
+})
+
 # ----------------------- YOLACT++ CONFIGS ----------------------- #
 
 yolact_plus_base_config = yolact_base_config.copy({
@@ -805,6 +841,16 @@ yolact_plus_resnet50_config = yolact_plus_base_config.copy({
     }),
 })
 
+yolact_plus_custom_config = yolact_plus_base_config.copy({
+    'name': 'yolact_resnet101_line_tree',
+
+    # Dataset stuff
+    'dataset': custom_dataset,
+    'num_classes': len(custom_dataset.class_names) + 1,
+
+    # Image Size
+    'max_size': 700,
+})
 
 # Default config
 cfg = yolact_base_config.copy()
