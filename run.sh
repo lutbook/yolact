@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd external/DCNv2
 python setup.py build develop
 cd
 cd
