@@ -1,7 +1,6 @@
 #!/bin/bash
 
-cd yolact/external/DCNv2
-pwd
+cd external/DCNv2
 python setup.py build develop
 cd /
 pwd
