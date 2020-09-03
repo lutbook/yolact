@@ -240,15 +240,15 @@ def prep_display(dets_out, img, h, w, undo_transform=True, class_color=False, ma
             score = scores[j]
 
             if args.display_bboxes:
-                cv2.rectangle(img_numpy, (x1, y1), (x2, y2), color, 1)
+                cv2.rectangle(img_numpy, (x1, y1), (x2, y2), color, 3)    ###changed: 1->3
 
             if args.display_text:
                 _class = cfg.dataset.class_names[classes[j]]
                 text_str = '%s: %.2f' % (_class, score) if args.display_scores else _class
 
                 font_face = cv2.FONT_HERSHEY_DUPLEX
-                font_scale = 0.6
-                font_thickness = 1
+                font_scale = 1 ###changed: 0.6 -> 3
+                font_thickness = 1 ###changed: 1 -> 3
 
                 text_w, text_h = cv2.getTextSize(text_str, font_face, font_scale, font_thickness)[0]
 
