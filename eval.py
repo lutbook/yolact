@@ -616,11 +616,12 @@ def evalimages(net:Yolact, input_folder:str, output_folder:str):
         os.mkdir(output_folder)
 
     print()
+    print("input folder files: ", len(Path(input_folder).glob('*')))
     for p in Path(input_folder).glob('*'): 
         path = str(p)
-        print("paht: ", path)
-        if path.split('.')[0] == None:
-            print(path)
+        print("path: ", path)
+        if path.split('_')[0] == '.':
+            print("should be skipped", path)
             continue
         name = os.path.basename(path)
         name = '.'.join(name.split('.')[:-1]) + '.png'
