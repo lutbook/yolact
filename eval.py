@@ -616,7 +616,6 @@ def evalimages(net:Yolact, input_folder:str, output_folder:str):
         os.mkdir(output_folder)
 
     print()
-    print("input folder files: ", len(Path(input_folder).glob('*')))
     for p in Path(input_folder).glob('*'): 
         path = str(p)
         print("path: ", path)
