@@ -621,7 +621,7 @@ def evalimages(net:Yolact, input_folder:str, output_folder:str):
     for path in os.listdir(input_folder):
         print("path: ", path)
 
-        if pat.split('/')[-1] == '._*':
+        if path.split('/')[-1] == '._*':
             print("should be skipped", path)
             continue
         name = os.path.basename(path)
