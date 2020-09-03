@@ -199,6 +199,9 @@ custom_test_dataset = dataset_base.copy({
     #'valid_info': 'data/custom/custom_ds_vld.json',
     #'valid_images': 'data/custom/images/',
     #'class_names': ('line', 'tree',)
+
+    # 'valid_info': './data/custom/custom_ds_test.json',
+    # 'valid_images': './data/custom/images/',
     'valid_info': '/kw_resources/yolact_data/data/custom/custom_ds_test.json',
     'valid_images': '/kw_resources/yolact_data/data/custom/images/',
 

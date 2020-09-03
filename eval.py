@@ -616,10 +616,12 @@ def evalimages(net:Yolact, input_folder:str, output_folder:str):
         os.mkdir(output_folder)
 
     print()
-    for p in Path(input_folder).glob('*'): 
-        path = str(p)
+    #for p in Path(input_folder).glob('*'): 
+    #    path = str(p)
+    for path in os.listdir(input_folder)
         print("path: ", path)
-        if cv2.imread(path).all() == None:
+
+        if pat.split('/')[-1] == '._*':
             print("should be skipped", path)
             continue
         name = os.path.basename(path)
