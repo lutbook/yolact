@@ -618,7 +618,7 @@ def evalimages(net:Yolact, input_folder:str, output_folder:str):
     print()
     #for p in Path(input_folder).glob('*'): 
     #    path = str(p)
-    for path in os.listdir(input_folder)
+    for path in os.listdir(input_folder):
         print("path: ", path)
 
         if pat.split('/')[-1] == '._*':
