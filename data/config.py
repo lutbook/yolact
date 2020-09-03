@@ -789,7 +789,7 @@ yolact_custom_config = yolact_base_config.copy({
     'num_classes': len(custom_dataset.class_names) + 1,
 
     # Image Size
-    'max_size': 700,
+    'max_size': 500,
 })
 
 yolact_resnet50_custom_config = yolact_resnet50_config.copy({
@@ -800,7 +800,7 @@ yolact_resnet50_custom_config = yolact_resnet50_config.copy({
     'num_classes': len(custom_dataset.class_names) + 1,
 
     # Image Size
-    'max_size': 550,
+    'max_size': 500,
 })
 
 # ----------------------- YOLACT++ CONFIGS ----------------------- #
@@ -849,7 +849,7 @@ yolact_plus_custom_config = yolact_plus_base_config.copy({
     'num_classes': len(custom_dataset.class_names) + 1,
 
     # Image Size
-    'max_size': 700,
+    'max_size': 500,
 })
 
 # Default config
