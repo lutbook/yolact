@@ -619,7 +619,7 @@ def evalimages(net:Yolact, input_folder:str, output_folder:str):
     for p in Path(input_folder).glob('*'): 
         path = str(p)
         print("path: ", path)
-        if cv2.imread(path) == None:
+        if cv2.imread(path).all() == None:
             print("should be skipped", path)
             continue
         name = os.path.basename(path)
