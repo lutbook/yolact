@@ -26,6 +26,7 @@ from pathlib import Path
 from collections import OrderedDict
 from PIL import Image
 
+import time
 import matplotlib.pyplot as plt
 import cv2
 
@@ -596,7 +597,6 @@ def evalimage(net:Yolact, path:str, save_path:str=None):
     frame = torch.from_numpy(cv2.imread(path)).cuda().float()
     batch = FastBaseTransform()(frame.unsqueeze(0))
     preds = net(batch)
-
     img_numpy = prep_display(preds, frame, None, None, undo_transform=False)
     
     if save_path is None:
@@ -929,6 +929,7 @@ def evaluate(net:Yolact, dataset, train_mode=False):
 
     try:
         # Main eval loop
+        print("Main eval loop")
         for it, image_idx in enumerate(dataset_indices):
             timer.reset()
 
