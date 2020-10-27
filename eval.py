@@ -594,11 +594,37 @@ def badhash(x):
     return x
 
 def evalimage(net:Yolact, path:str, save_path:str=None):
-    print(path)
-    print(cv2.imread(path).shape)
+    
     frame = torch.from_numpy(cv2.imread(path)).cuda().float()
     batch = FastBaseTransform()(frame.unsqueeze(0))
-    preds = net(batch)
+
+
+    #################
+    #dummy_input = torch.randn(1,3,700,700, dtype=torch.float).to(device)
+    starter, ender = torch.cuda.Event(enable_timing=True), torch.cuda.Event(enable_timing=True)
+    repetitions=300
+    timings=np.zeros((repetitions,1))
+    #GPUWARMUP
+    for _ in range(10):
+        preds = net(batch)
+    with torch.no_grad():
+        for rep in range(repetitions):
+            starter.record()
+            preds = net(batch)
+            ender.record()
+        #WAITCPU SYNC
+        torch.cuda.synchronize()
+        curr_time=starter.elapsed_time(ender)
+        timings[rep]= curr_time
+
+    mean_syn=np.sum(timings) / repetitions
+    std_syn=np.std(timings)
+    print("measured time: ", mean_syn)
+    #preds = net(batch)
+
+
+    ######################
+
     img_numpy = prep_display(preds, frame, None, None, undo_transform=False)
     
     if save_path is None:
@@ -616,14 +642,11 @@ def evalimages(net:Yolact, input_folder:str, output_folder:str):
         os.mkdir(output_folder)
 
     print()
-    #for p in Path(input_folder).glob('*'): 
-    #    path = str(p)
-    for path in os.listdir(input_folder):
-        print("path: ", path)
+    for p in Path(input_folder).glob('*'): 
+        path = str(p)
+    # for path in os.listdir(input_folder):
+        #print("path: ", path)
 
-        if path.split('/')[-1] == '._*':
-            print("should be skipped", path)
-            continue
         name = os.path.basename(path)
         name = '.'.join(name.split('.')[:-1]) + '.png'
 

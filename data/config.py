@@ -815,7 +815,7 @@ yolact_custom_config = yolact_base_config.copy({
 })
 
 yolact_resnet50_custom_config = yolact_resnet50_config.copy({
-    'name': 'yolact_resnet101_line_tree',
+    'name': 'yolact_resnet50_line_tree',
 
     # Dataset stuff
     'dataset': custom_dataset,
