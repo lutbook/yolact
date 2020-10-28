@@ -176,7 +176,7 @@ custom_dataset = dataset_base.copy({
     'name': 'KumazawaLab - Line&tree segmentations',
     'train_info': '/kw_resources/yolact_data/data/custom/custom_ds_train.json',
     'train_images': '/kw_resources/yolact_data/data/custom/images/',
-    'valid_info': '/kw_resources/yolact_data/data/custom/custom_ds_vld.json',
+    'valid_info': '/kw_resources/yolact_data/data/custom/custom_ds_val.json',
     'valid_images': '/kw_resources/yolact_data/data/custom/images/',
     #'train_info': 'data/custom/custom_ds_train.json',
     #'train_images': 'data/custom/images/',
