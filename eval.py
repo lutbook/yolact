@@ -653,7 +653,7 @@ def evalimages(net:Yolact, input_folder:str, output_folder:str):
         _dot_checker = _checker.split('_')[0]
         print("check this one as ., if . it should be escaped", _dot_checker)
         if _dot_checker == '.':
-            path = path.split('_')[0].split('.')[0] + _checker.split('_')[1]
+            path = path.split('.')[0] + _checker.split('_')[1]
             print("changed path: ", path)
         ####################
 
