@@ -646,32 +646,14 @@ def evalimages(net:Yolact, input_folder:str, output_folder:str):
         path = str(p)
 
         #####################
-        print(path)
+        print("ehnii check: ",path)
         _checker = path.split('/')[4]
-        print("_checker:", _checker)
+        #print("_checker:", _checker)
         _dot_checker = _checker.split('_')[0]
-        print(_dot_checker)
+        print("check this one as ., if . it should be escaped", _dot_checker)
         if _dot_checker == '.':
-            print("finally pass")
+            print("Pass ")
             continue
-
-
-        
-        if _checker == "._*.png" or _checker == "._*jpg":
-
-            print("pass: because starts with ._")
-            continue
-
-        if path == "/kw_resources/yolact_data/test_images/._*.png" or _checker == "kw_resources/yolact_data/test_images/._*.jpg":
-            print("pass: path is because starts with ._")
-            continue
-
-        __checker = path.split('.')[1]
-        print("__checker: ",__checker)
-        if __checker == "_*":
-            print("pass because its __checker one")
-            continue
-
         #####################
 
     # for path in os.listdir(input_folder):
