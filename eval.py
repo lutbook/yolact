@@ -644,6 +644,18 @@ def evalimages(net:Yolact, input_folder:str, output_folder:str):
     print()
     for p in Path(input_folder).glob('*'): 
         path = str(p)
+
+        #####################
+        print(path)
+        _checker = path.split('/')[3]
+        print("_checker:", _checker)
+        __checker = path.split('.')[1]
+        print("__checker: ",__checker)
+        if _checker == "._*.png" or _checker == "._*jpg":
+            print("pass: because starts with ._")
+
+        #####################
+
     # for path in os.listdir(input_folder):
         #print("path: ", path)
 
@@ -651,7 +663,7 @@ def evalimages(net:Yolact, input_folder:str, output_folder:str):
         name = '.'.join(name.split('.')[:-1]) + '.png'
 
         out_path = os.path.join(output_folder, name)
-        print(path)
+        
         evalimage(net, path, out_path)
         print(path + ' -> ' + out_path)
     print('Done.')
