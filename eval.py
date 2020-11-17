@@ -647,12 +647,16 @@ def evalimages(net:Yolact, input_folder:str, output_folder:str):
 
         #####################
         print(path)
-        _checker = path.split('/')[3]
+        _checker = path.split('/')[4]
         print("_checker:", _checker)
         __checker = path.split('.')[1]
         print("__checker: ",__checker)
         if _checker == "._*.png" or _checker == "._*jpg":
             print("pass: because starts with ._")
+            continue
+        if __checker == "_*":
+            print("pass because its __checker one")
+            continue
 
         #####################
 
