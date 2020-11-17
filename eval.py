@@ -651,7 +651,7 @@ def evalimages(net:Yolact, input_folder:str, output_folder:str):
         name = '.'.join(name.split('.')[:-1]) + '.png'
 
         out_path = os.path.join(output_folder, name)
-
+        print(path)
         evalimage(net, path, out_path)
         print(path + ' -> ' + out_path)
     print('Done.')
