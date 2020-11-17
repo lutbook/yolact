@@ -642,18 +642,19 @@ def evalimages(net:Yolact, input_folder:str, output_folder:str):
         os.mkdir(output_folder)
 
     print()
-    for p in Path(input_folder).glob('*'): 
+    # for p in Path(input_folder).glob('*'): 
+    for p in os.listdir(input_folder): 
         path = str(p)
 
         #####################
         print("ehnii check: ",path)
-        _checker = path.split('/')[4]
-        #print("_checker:", _checker)
-        _dot_checker = _checker.split('_')[0]
-        print("check this one as ., if . it should be escaped", _dot_checker)
-        if _dot_checker == '.':
-            path = path.split('_')[0].split('.')[0] + _checker.split('_')[1]
-            print("changed path: ", path)
+        # _checker = path.split('/')[4]
+        # #print("_checker:", _checker)
+        # _dot_checker = _checker.split('_')[0]
+        # print("check this one as ., if . it should be escaped", _dot_checker)
+        # if _dot_checker == '.':
+        #     path = path.split('_')[0].split('.')[0] + _checker.split('_')[1]
+        #     print("changed path: ", path)
         #####################
 
     # for path in os.listdir(input_folder):
