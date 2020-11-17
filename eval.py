@@ -649,11 +649,17 @@ def evalimages(net:Yolact, input_folder:str, output_folder:str):
         print(path)
         _checker = path.split('/')[4]
         print("_checker:", _checker)
-        __checker = path.split('.')[1]
-        print("__checker: ",__checker)
+        
         if _checker == "._*.png" or _checker == "._*jpg":
             print("pass: because starts with ._")
             continue
+
+        if path == "/kw_resources/yolact_data/test_images/._*.png" or _checker == "kw_resources/yolact_data/test_images/._*.jpg":
+            print("pass: path is because starts with ._")
+            continue
+
+        __checker = path.split('.')[1]
+        print("__checker: ",__checker)
         if __checker == "_*":
             print("pass because its __checker one")
             continue
