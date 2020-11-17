@@ -7,5 +7,4 @@ python3 eval.py --config=yolact_resnet50_custom_config \
 --score_threshold=0.0 \
 --top_k=15 \
 --video_multiframe=4 \
---display_fps \
 --video=/kw_resources/yolact_data/test_videos/P8220345.mp4:/kw_resources/yolact_data/output_videos/P8220345.mp4
