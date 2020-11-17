@@ -2,7 +2,7 @@
 cd external/DCNv2
 python3 setup.py build develop
 cd /yolact
-python3 eval.py --config=yolact_plus_custom_config \
+python3 eval.py --config=yolact_resnet50_custom_config \
 --trained_model=/kw_resources/yolact_data/weights/yolact_resnet50_line_tree_2346_176000.pth \
 --score_threshold=0.0 \
 --top_k=2 \
