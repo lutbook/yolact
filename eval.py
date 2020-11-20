@@ -689,6 +689,9 @@ def evalvideo(net:Yolact, path:str, out_path:str=None):
         vid = cv2.VideoCapture(int(path))
     else:
         vid = cv2.VideoCapture(path)
+    ###########################################
+    print(path)
+    ###########################################
     
     if not vid.isOpened():
         print('Could not open video "%s"' % path)
