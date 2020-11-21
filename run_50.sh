@@ -5,5 +5,4 @@ cd /yolact
 python3 train.py \
 --config=yolact_resnet50_custom_config \
 --resume=/kw_resources/yolact_data/weights/resnet50-19c8e357.pth \
---start_iter=0 \
->>"/kw_resources/yolact_data/loss_log_1st.log">> 2>&1
+--start_iter=0>>"/kw_resources/yolact_data/loss_log_1st.log">> 2>&1
