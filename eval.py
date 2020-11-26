@@ -681,6 +681,16 @@ class CustomDataParallel(torch.nn.DataParallel):
 def evalvideo(net:Yolact, path:str, out_path:str=None):
     ###########################################
     print(path)
+    #####################
+    print("ehnii check: ",path)
+    _checker = path.split('/')[4]
+    #print("_checker:", _checker)
+    _dot_checker = _checker.split('_')[0]
+    print("check this one as ., if . it should be escaped", _dot_checker)
+    if _dot_checker == '.':
+        path = path.split('.')[0] + _checker.split('_')[1]
+        print("changed path: ", path)
+        ####################
     ###########################################
 
     # If the path is a digit, parse it as a webcam index
