@@ -691,6 +691,9 @@ def evalvideo(net:Yolact, path:str, out_path:str=None):
         path = path.split('.')[0] + _checker.split('_')[1]
         print("changed path: ", path)
         ####################
+
+        ##hello
+    
     ###########################################
 
     # If the path is a digit, parse it as a webcam index
