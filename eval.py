@@ -168,7 +168,7 @@ def prep_display(dets_out, img, h, w, undo_transform=True, class_color=True, mas
 
 
 #-----------------------1128n 22:49d---------------------------#            
-        if classes[j] == 'tree':
+        if classes[j] == 2: #tree is class number 2
             num_dets_to_consider =j
             break
 
@@ -290,7 +290,11 @@ def prep_display(dets_out, img, h, w, undo_transform=True, class_color=True, mas
 
                 text_w, text_h = cv2.getTextSize(text_str, font_face, font_scale, font_thickness)[0]
 
-                text_pt = (x1, y1 + 3)
+                if _class == 'line':
+                    text_pt = (x1, y1 + 6)
+                else:
+                    continue
+                    #text_pt = (x1, y1 + 6)
                 text_color = [255, 255, 255]
 
                 cv2.rectangle(img_numpy, (x1, y1), (x1 + text_w, y1 + text_h - 4), color, -1)
