@@ -166,6 +166,15 @@ def prep_display(dets_out, img, h, w, undo_transform=True, class_color=True, mas
             num_dets_to_consider = j
             break
 
+
+#-----------------------1128n 22:49d---------------------------#            
+        if classes[j] == 'tree':
+            num_dets_to_consider =j
+            break
+
+#--------------------------------------------------------------#
+
+
     # Quick and dirty lambda for selecting the color for a particular index
     # Also keeps track of a per-gpu color cache for maximum speed
     def get_color(j, on_gpu=None):
@@ -281,7 +290,7 @@ def prep_display(dets_out, img, h, w, undo_transform=True, class_color=True, mas
 
                 text_w, text_h = cv2.getTextSize(text_str, font_face, font_scale, font_thickness)[0]
 
-                text_pt = (x1, y1 - 3)
+                text_pt = (x1, y1 + 3)
                 text_color = [255, 255, 255]
 
                 cv2.rectangle(img_numpy, (x1, y1), (x1 + text_w, y1 + text_h - 4), color, -1)
