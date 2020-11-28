@@ -1,7 +1,7 @@
 #!/bin/bash
 cd /yolact
 python3 eval.py --config=yolact_resnet50_custom_config \
---trained_model=/kw_resources/yolact_data/weights/yolact_resnet50_line_tree_8146_611000.pth \
+--trained_model=/kw_resources/yolact_data/weights/1116/yolact_resnet50_line_tree_8146_611000.pth \
 --score_threshold=0.01 \
 --top_k=15 \
 --video_multiframe=4 \
