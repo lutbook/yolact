@@ -191,6 +191,8 @@ def prep_display(dets_out, img, h, w, undo_transform=True, class_color=True, mas
         # After this, mask is of size [num_dets, h, w, 1]
         masks = masks[:num_dets_to_consider, :, :, None]
         
+         ##########################################################################
+        """
         nzCount=-1
         for i in range(num_dets_to_consider):
             temp_class_check = cfg.dataset.class_names[classes[i]]
@@ -210,7 +212,7 @@ def prep_display(dets_out, img, h, w, undo_transform=True, class_color=True, mas
         img_gpu=(masks.sum(dim=0)>=1).float().expand(-1,-1,3).contiguous()
     else:
         img_gpu *- 0
-
+        """
         ##########################################################################
         
         # Prepare the RGB images for each mask given their color (size [num_dets, h, w, 1])
@@ -282,7 +284,7 @@ def prep_display(dets_out, img, h, w, undo_transform=True, class_color=True, mas
                 text_pt = (x1, y1 - 3)
                 text_color = [255, 255, 255]
 
-                cv2.rectangle(img_numpy, (x1, y1), (x1 - text_w, y1 - text_h - 4), color, -1)
+                cv2.rectangle(img_numpy, (x1, y1), (x1 + text_w, y1 + text_h - 4), color, -1)
                 cv2.putText(img_numpy, text_str, text_pt, font_face, font_scale, text_color, font_thickness, cv2.LINE_AA)
             
     
