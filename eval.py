@@ -185,13 +185,15 @@ def prep_display(dets_out, img, h, w, undo_transform=True, class_color=True, mas
         if on_gpu is not None and color_idx in color_cache[on_gpu]:
             return color_cache[on_gpu][color_idx]
         else:
-            color = COLORS[color_idx]
+            #color = COLORS[color_idx]
+            color = (100, 149, 237)  #rgb light blue for line
+            #color = (124, 252, 0)  #rgb light green for tree
             if not undo_transform:
                 # The image might come in as RGB or BRG, depending
                 color = (color[2], color[1], color[0])
             if on_gpu is not None:
                 color = torch.Tensor(color).to(on_gpu).float() / 255.
-                color_cache[on_gpu][color_idx] = color
+                color_cache[on_gpu][color_idx] = color 
             return color
 
     # First, draw the masks on the GPU where we can do it really fast
