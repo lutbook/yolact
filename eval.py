@@ -186,8 +186,8 @@ def prep_display(dets_out, img, h, w, undo_transform=True, class_color=True, mas
             return color_cache[on_gpu][color_idx]
         else:
             #color = COLORS[color_idx]
-            #color = (100, 149, 237)  #rgb light blue for line
-            color = (124, 252, 0)  #rgb light green for tree
+            color = (100, 149, 237)  #rgb light blue for line
+            #color = (124, 252, 0)  #rgb light green for tree
             if not undo_transform:
                 # The image might come in as RGB or BRG, depending
                 color = (color[2], color[1], color[0])
@@ -693,13 +693,17 @@ def evalimages(net:Yolact, input_folder:str, output_folder:str):
 
         #####################
         print("ehnii check: ",path)
-        _checker = path.split('/')[4]
-        #print("_checker:", _checker)
-        _dot_checker = _checker.split('_')[0]
-        print("check this one as ., if . it should be escaped", _dot_checker)
-        if _dot_checker == '.':
-            path = path.split('.')[0] + _checker.split('_')[1]
-            print("changed path: ", path)
+        try:
+            _checker = path.split('/')[4]
+        
+            #print("_checker:", _checker)
+            _dot_checker = _checker.split('_')[0]
+            print("check this one as ., if . it should be escaped", _dot_checker)
+            if _dot_checker == '.':
+                path = path.split('.')[0] + _checker.split('_')[1]
+                print("changed path: ", path)
+        except:
+            print('seems ok')
         ####################
 
     # for path in os.listdir(input_folder):
