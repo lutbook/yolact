@@ -7,4 +7,5 @@ python3 eval.py --config=yolact_resnet50_custom_config \
 --score_threshold=0.0 \
 --top_k=14 \
 --images=/kw_resources/yolact_data/test_images/:/kw_resources/yolact_data/output_images/ \
---benchmark
+--benchmark \
+--cross_class_nms=True
