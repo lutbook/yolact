@@ -176,7 +176,7 @@ custom_dataset = dataset_base.copy({
     'name': 'KumazawaLab - Line&tree segmentations',
     'train_info': '/kw_resources/yolact_data/data/custom/custom_ds_train.json',
     'train_images': '/kw_resources/yolact_data/data/custom/images/',
-    'valid_info': '/kw_resources/yolact_data/data/custom/custom_ds_val.json',
+    'valid_info': '/kw_resources/yolact_data/data/custom/custom_ds_vld.json',
     'valid_images': '/kw_resources/yolact_data/data/custom/images/',
     #'train_info': 'data/custom/custom_ds_train.json',
     #'train_images': 'data/custom/images/',
@@ -184,8 +184,8 @@ custom_dataset = dataset_base.copy({
     #'valid_images': 'data/custom/images/',
     #'class_names': ('line', 'tree',)
     'has_gt': True,
-    'class_names': ('line', 'tree'),
-    'label_map': {1: 1, 2: 2} 
+    'class_names': ('line', 'tree', 'pole'),
+    'label_map': {1: 1, 2: 2, 3: 3} 
 })
 
 custom_test_dataset = dataset_base.copy({
@@ -205,11 +205,48 @@ custom_test_dataset = dataset_base.copy({
     'valid_info': '/kw_resources/yolact_data/data/custom/custom_ds_test.json',
     'valid_images': '/kw_resources/yolact_data/data/custom/images/',
 
-    'has_gt': False,
-    'class_names': ('line', 'tree'),
-    'label_map': {1: 1, 2: 2} 
+    'has_gt': True,
+    'class_names': ('line', 'tree', 'pole'),
+    'label_map': {1: 1, 2: 2, 3:3} 
 })
 
+custom_rle = dataset_base.copy({
+    'name': 'KumazawaLab - Line&tree segmentations',
+    'train_info': '/kw_resources/yolact_data/data/custom/custom_ds_train_rle.json',
+    'train_images': '/kw_resources/yolact_data/data/custom/images/',
+    'valid_info': '/kw_resources/yolact_data/data/custom/custom_ds_vld_rle.json',
+    'valid_images': '/kw_resources/yolact_data/data/custom/images/',
+    #'train_info': 'data/custom/custom_ds_train.json',
+    #'train_images': 'data/custom/images/',
+    #'valid_info': 'data/custom/custom_ds_vld.json',
+    #'valid_images': 'data/custom/images/',
+    #'class_names': ('line', 'tree',)
+    'has_gt': True,
+    'class_names': ('line', 'tree', 'pole'),
+    'label_map': {1: 1, 2: 2, 3: 3} 
+})
+
+custom_test_rle = dataset_base.copy({
+    #'name': 'KumazawaLab - Line&tree segmentations',
+    #'train_info': '/kw_resources/yolact_data/data/custom/custom_ds_train.json',
+    #'train_images': '/kw_resources/yolact_data/data/custom/images/',
+    #'valid_info': '/kw_resources/yolact_data/data/custom/custom_ds_vld.json',
+    #'valid_images': '/kw_resources/yolact_data/data/custom/images/',
+    #'train_info': 'data/custom/custom_ds_train.json',
+    #'train_images': 'data/custom/images/',
+    #'valid_info': 'data/custom/custom_ds_vld.json',
+    #'valid_images': 'data/custom/images/',
+    #'class_names': ('line', 'tree',)
+
+    # 'valid_info': './data/custom/custom_ds_test.json',
+    # 'valid_images': './data/custom/images/',
+    'valid_info': '/kw_resources/yolact_data/data/custom/custom_ds_test_rle.json',
+    'valid_images': '/kw_resources/yolact_data/data/custom/images/',
+
+    'has_gt': True,
+    'class_names': ('line', 'tree', 'pole'),
+    'label_map': {1: 1, 2: 2, 3:3} 
+})
 
 
 # ----------------------- TRANSFORMS ----------------------- #
@@ -820,6 +857,17 @@ yolact_resnet50_custom_config = yolact_resnet50_config.copy({
     # Dataset stuff
     'dataset': custom_dataset,
     'num_classes': len(custom_dataset.class_names) + 1,
+
+    # Image Size
+    'max_size': 500,
+})
+
+yolact_resnet50_custom_rle_config = yolact_resnet50_config.copy({
+    'name': 'yolact_resnet50_line_tree',
+
+    # Dataset stuff
+    'dataset': custom_rle,
+    'num_classes': len(custom_rle.class_names) + 1,
 
     # Image Size
     'max_size': 500,
