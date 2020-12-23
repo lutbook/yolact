@@ -216,36 +216,18 @@ custom_rle = dataset_base.copy({
     'train_images': '/kw_resources/yolact_data/data/custom/images/',
     'valid_info': '/kw_resources/yolact_data/data/custom/custom_ds_vld_rle.json',
     'valid_images': '/kw_resources/yolact_data/data/custom/images/',
-    #'train_info': 'data/custom/custom_ds_train.json',
-    #'train_images': 'data/custom/images/',
-    #'valid_info': 'data/custom/custom_ds_vld.json',
-    #'valid_images': 'data/custom/images/',
-    #'class_names': ('line', 'tree',)
     'has_gt': True,
     'class_names': ('line', 'tree', 'pole'),
     'label_map': {1: 1, 2: 2, 3: 3} 
 })
 
 custom_test_rle = dataset_base.copy({
-    #'name': 'KumazawaLab - Line&tree segmentations',
-    #'train_info': '/kw_resources/yolact_data/data/custom/custom_ds_train.json',
-    #'train_images': '/kw_resources/yolact_data/data/custom/images/',
-    #'valid_info': '/kw_resources/yolact_data/data/custom/custom_ds_vld.json',
-    #'valid_images': '/kw_resources/yolact_data/data/custom/images/',
-    #'train_info': 'data/custom/custom_ds_train.json',
-    #'train_images': 'data/custom/images/',
-    #'valid_info': 'data/custom/custom_ds_vld.json',
-    #'valid_images': 'data/custom/images/',
-    #'class_names': ('line', 'tree',)
-
-    # 'valid_info': './data/custom/custom_ds_test.json',
-    # 'valid_images': './data/custom/images/',
     'valid_info': '/kw_resources/yolact_data/data/custom/custom_ds_test_rle.json',
     'valid_images': '/kw_resources/yolact_data/data/custom/images/',
 
-    'has_gt': True,
+    'has_gt': False,
     'class_names': ('line', 'tree', 'pole'),
-    'label_map': {1: 1, 2: 2, 3:3} 
+    'label_map': {1: 1, 2: 2, 3: 3} 
 })
 
 
