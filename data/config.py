@@ -833,8 +833,8 @@ yolact_custom_config = yolact_base_config.copy({
     'max_size': 500,
 })
 
-yolact_resnet50_custom_config = yolact_resnet50_config.copy({
-    'name': 'yolact_resnet50_line_tree',
+yolact_r50_config = yolact_resnet50_config.copy({
+    'name': 'yolact_r50',
 
     # Dataset stuff
     'dataset': custom_dataset,
@@ -844,7 +844,7 @@ yolact_resnet50_custom_config = yolact_resnet50_config.copy({
     'max_size': 500,
 })
 
-yolact_resnet50_custom_rle_config = yolact_resnet50_config.copy({
+yolact_r50_rle_config = yolact_resnet50_config.copy({
     'name': 'yolact_r50_rle',
 
     # Dataset stuff
