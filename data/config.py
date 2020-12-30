@@ -554,8 +554,8 @@ coco_base_config = Config({
     'augment_random_rot90': False,
 
     # Discard detections with width and height smaller than this (in absolute width and height)
-    'discard_box_width': 0,#4 / 550,
-    'discard_box_height': 0,#4 / 550,
+    'discard_box_width': 4 / 550,
+    'discard_box_height': 4 / 550,
 
     # If using batchnorm anywhere in the backbone, freeze the batchnorm layer during training.
     # Note: any additional batch norm layers after the backbone will not be frozen.
