@@ -211,7 +211,7 @@ custom_test_dataset = dataset_base.copy({
 })
 
 custom_rle = dataset_base.copy({
-    'name': 'KumazawaLab - Line&tree segmentations',
+    'name': 'KumazawaLab - Line&tree segmentations_rle',
     'train_info': '/kw_resources/yolact_data/data/custom/custom_ds_train_rle.json',
     'train_images': '/kw_resources/yolact_data/data/custom/images/',
     'valid_info': '/kw_resources/yolact_data/data/custom/custom_ds_vld_rle.json',
