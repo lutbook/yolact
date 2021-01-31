@@ -186,8 +186,8 @@ def prep_display(dets_out, img, h, w, undo_transform=True, class_color=True, mas
             return color_cache[on_gpu][color_idx]
         else:
             #color = COLORS[color_idx]
-            color = (100, 149, 237)  #rgb light blue for line
-            # color = (124, 252, 0)  #rgb light green for tree
+            # color = (100, 149, 237)  #rgb light blue for line
+            color = (124, 252, 0)  #rgb light green for tree
             if not undo_transform:
                 # The image might come in as RGB or BRG, depending
                 color = (color[2], color[1], color[0])
@@ -850,7 +850,8 @@ def evalvideo(net:Yolact, path:str, out_path:str=None):
                         video_frame_times.add(next_time - last_time)
                         video_fps = 1 / video_frame_times.get_avg()
                     if out_path is None:
-                        cv2.imshow(path, frame_buffer.get())
+                        print("Here was showing the frames")
+                        # cv2.imshow(path, frame_buffer.get())
                     else:
                         out.write(frame_buffer.get())
                     frames_displayed += 1
