@@ -5,4 +5,4 @@ python3 eval.py --config=yolact_r50_config \
 --score_threshold=0.5 \
 --top_k=15 \
 --video_multiframe=4 \
---video=/kw_resources/yolact_data/test_videos/P8220345.mp4:/kw_resources/yolact_data/out_P8220345.mp4
+--video=/kw_resources/yolact_data/test_videos/P8220358.mp4:/kw_resources/yolact_data/P8220358.mp4
