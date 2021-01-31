@@ -793,7 +793,7 @@ def evalvideo(net:Yolact, path:str, out_path:str=None):
         vid.release()
         if out_path is not None:
             out.release()
-        cv2.destroyAllWindows()
+        # cv2.destroyAllWindows()
         exit()
 
     def get_next_frame(vid):
