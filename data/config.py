@@ -872,7 +872,7 @@ yolact_r50_custom2_config = yolact_resnet50_config.copy({
 
     # Dataset stuff
     'dataset': custom2_dataset,
-    'num_classes': len(custom_dataset.class_names) + 1,
+    'num_classes': len(custom_dataset.class_names), #+ 1,  #621
 
     # Image Size
     'max_size': 500,
