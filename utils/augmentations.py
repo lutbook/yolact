@@ -152,6 +152,7 @@ class Resize(object):
             width, height = self.max_size, self.max_size
 
         image = cv2.resize(image, (width, height))
+        print("==========: ", masks.shape, height, width)
 
         if self.resize_gt:
             # Act like each object is a color channel

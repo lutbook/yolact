@@ -113,7 +113,6 @@ class COCODetection(data.Dataset):
 
             # Target has {'segmentation', 'area', iscrowd', 'image_id', 'bbox', 'category_id'}
             target = [x for x in self.coco.loadAnns(ann_ids) if x['image_id'] == img_id]
-            print("target: ", len(target), target)
         else:
             target = []
 
