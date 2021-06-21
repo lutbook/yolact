@@ -53,7 +53,6 @@ class Compose(object):
     def __call__(self, img, masks=None, boxes=None, labels=None):
         for t in self.transforms:
             img, masks, boxes, labels = t(img, masks, boxes, labels)
-            print("------is mask empty: ", img.shape, masks.shape, len(boxes), len(labels) )
         return img, masks, boxes, labels
 
 
@@ -152,7 +151,7 @@ class Resize(object):
             width, height = self.max_size, self.max_size
 
         image = cv2.resize(image, (width, height))
-        print("==========: ", masks.shape, height, width)
+        # print("==========: ", masks.shape, height, width)
 
         if self.resize_gt:
             # Act like each object is a color channel
