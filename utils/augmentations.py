@@ -53,6 +53,7 @@ class Compose(object):
     def __call__(self, img, masks=None, boxes=None, labels=None):
         for t in self.transforms:
             img, masks, boxes, labels = t(img, masks, boxes, labels)
+            print("------is mask empty: ", img.shape, masks.shape, len(boxes), len(labels) )
         return img, masks, boxes, labels
 
 
@@ -155,7 +156,6 @@ class Resize(object):
         if self.resize_gt:
             # Act like each object is a color channel
             masks = masks.transpose((1, 2, 0))
-            print("------is mask empty: ", masks.shape, width, height )
             masks = cv2.resize(masks, (width, height))
             
             # OpenCV resizes a (w,h,1) array to (s,s), so fix that
