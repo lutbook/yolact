@@ -155,6 +155,7 @@ class Resize(object):
         if self.resize_gt:
             # Act like each object is a color channel
             masks = masks.transpose((1, 2, 0))
+            print("------is mask empty: ", masks.shape, width, height )
             masks = cv2.resize(masks, (width, height))
             
             # OpenCV resizes a (w,h,1) array to (s,s), so fix that
